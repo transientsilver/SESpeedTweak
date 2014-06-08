@@ -7,13 +7,13 @@ using System.Xml.Linq;
 
 namespace SESpeedTweak
 {
-    class BlockManger
+    class CubeBlockManger
     {
         private XDocument xdoc;
-        public List<Block> blocks { get; set; }        
+        public List<CubeBlock> blocks { get; set; }        
         private string filename;
 
-        public BlockManger(string filepath)
+        public CubeBlockManger(string filepath)
         {
             filename = filepath;
             loadData();
@@ -24,14 +24,14 @@ namespace SESpeedTweak
             xdoc = XDocument.Load(filename);
 
             var allblocks = from b in xdoc.Descendants("Definition")
-                            select new Block(b);
+                            select new CubeBlock(b);
 
             blocks = allblocks.OrderBy(b => b.Name).ToList();
         }
 
         public void increaseSpeedByMultiplier(decimal multiplier)
         {
-            foreach(Block b in blocks)
+            foreach(CubeBlock b in blocks)
             {
                 b.BuildTime = b.BuildTime / Math.Abs(multiplier);
             }
@@ -39,7 +39,7 @@ namespace SESpeedTweak
 
         public void decreaseSpeedByMultiplier(decimal multiplier)
         {
-            foreach (Block b in blocks)
+            foreach (CubeBlock b in blocks)
             {
                 b.BuildTime = b.BuildTime * Math.Abs(multiplier);
             }

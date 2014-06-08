@@ -12,7 +12,7 @@
             </MenuItem>
             <MenuItem Header="_About" />
         </Menu>
-        <ScrollViewer x:Name="mainPanel" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Bottom">
+        <ScrollViewer x:Name="mainPanel" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Bottom">
         </ScrollViewer>
     </DockPanel>
 </Window>

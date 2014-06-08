@@ -7,11 +7,11 @@ using System.Xml.Linq;
 
 namespace SESpeedTweak
 {
-    public class Block
+    public class CubeBlock
     {
         private XElement xe;
 
-        public Block(XElement e)
+        public CubeBlock(XElement e)
         {
             xe = e;
         }

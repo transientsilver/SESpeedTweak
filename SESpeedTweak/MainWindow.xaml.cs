@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace SESpeedTweak
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,8 +26,7 @@ namespace SESpeedTweak
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem mi = e.Source as MenuItem;
-            var name = "SESpeedTweak." + mi.Name;
-            
+            var name = "SESpeedTweak." + mi.Name;            
 
             var c = System.Reflection.Assembly.GetExecutingAssembly().CreateInstance(name);
             mainPanel.Content = c;

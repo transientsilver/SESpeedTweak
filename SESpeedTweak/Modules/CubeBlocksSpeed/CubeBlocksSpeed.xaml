@@ -5,21 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"
              xmlns:local="clr-namespace:SESpeedTweak"
-             d:DesignHeight="300" d:DesignWidth="300"  Loaded="Window_Loaded">
-    <UserControl.Resources>
-        <CollectionViewSource x:Key="blockViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Block}, CreateList=True}"/>
-    </UserControl.Resources>
-    <Grid DataContext="{StaticResource blockViewSource}" HorizontalAlignment="Center" Width="296">
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid HorizontalAlignment="Center" Width="309" Margin="2,0,-11,0">
         <Slider x:Name="sliderMultiplier" HorizontalAlignment="Left" Margin="47,46,0,0" VerticalAlignment="Top" Width="181" Minimum="-20" Maximum="20" SmallChange="0.5" ValueChanged="sliderMultiplier_ValueChanged" IsSnapToTickEnabled="True" TickFrequency="0.5"/>
         <Label x:Name="lblInfo" Content="" HorizontalAlignment="Left" Margin="47,15,0,0" VerticalAlignment="Top" Width="218"/>
-        <DataGrid x:Name="blockDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,120,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Width="286" Height="180">
+
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <DataGrid x:Name="blockDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Height="162" Width="289">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn x:Name="sizeColumn" Binding="{Binding Size}" Header="Size" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn x:Name="buildTimeColumn" Binding="{Binding BuildTime}" Header="Build Time" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
 
     </Grid>
 </UserControl>
